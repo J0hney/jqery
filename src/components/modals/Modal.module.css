@@ -1,0 +1,140 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(5px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  animation: fadeIn 150ms ease-out;
+}
+
+.modal {
+  width: min(800px, 92vw);
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+  overflow: hidden;
+  border: 1px solid #e5e7eb;
+  animation: slideUp 180ms ease-out;
+}
+
+.sizeLarge {
+  width: min(1200px, 96vw); /* ~+50% */
+}
+
+.sizeMedium {
+  width: min(784px, 92vw); /* narrower: -30% from previous medium */
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  background: #f8f9fa;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #212529;
+}
+
+.closeBtn {
+  border: none;
+  background: none;
+  font-size: 20px;
+  cursor: pointer;
+  color: #dc3545;
+}
+
+.body {
+  padding: 16px;
+  max-height: 65vh;
+  overflow: auto;
+  font-family: inherit; /* unify with main */
+  font-size: 14px;      /* follow base */
+}
+
+.bodyLarge { max-height: 85vh; }
+.bodyMedium { max-height: 92vh; } /* taller: +~25% */
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { transform: translateY(8px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table th, .table td {
+  border: 1px solid #e5e7eb;
+  padding: 12px 14px; /* more spacing */
+  text-align: left;
+  vertical-align: top;
+  line-height: 1.6;
+}
+
+.table th {
+  background: #f1f3f5;
+  font-weight: 600;
+}
+
+.tableContainer {
+  max-height: 70vh;
+  overflow: auto;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px; /* relaxed spacing */
+}
+
+.input {
+  padding: 10px 12px;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.input:focus {
+  border-color: #0d6efd;
+  outline: none;
+}
+
+.error {
+  border-color: #dc3545;
+}
+
+.submitBtn {
+  align-self: flex-start;
+  background: #0d6efd;
+  color: #fff;
+  border: none;
+  padding: 12px 18px; /* larger click area */
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.submitBtn:hover {
+  background: #0b5ed7;
+}
+
+/* Responsive tweaks */
+@media (max-width: 640px) {
+  .sizeMedium { width: 94vw; }
+  .bodyMedium { max-height: 88vh; }
+}
+
+
